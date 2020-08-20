@@ -2,6 +2,7 @@
 	"name": "make-runner",
 	"displayName": "Make Runner",
 	"description": "Run Make file easily",
+	"publisher": "rajiv-sah",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.48.0"
@@ -17,7 +18,14 @@
 		"commands": [
 			{
 				"command": "make-runner.helloWorld",
-				"title": "Hello World"
+				"title": "Make It"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "make-runner.helloWorld",
+				"key": "ctrl+shift+enter",
+				"mac": "cmd+shift+enter"
 			}
 		]
 	},
