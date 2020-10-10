@@ -2,8 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const path = require('path');
-const fs = require('fs');
-const  os = require('os');
 var ncp = require("copy-paste");
 
 // this method is called when your extension is activated
