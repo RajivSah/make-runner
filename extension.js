@@ -38,20 +38,10 @@ function activate(context) {
 			const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
 			const line = editor.selection.active.line;
 			const command = editor.document.lineAt(line).text.split(":")[0];
-				const activeTerminal = vscode.window.activeTerminal
-
-				if (activeTerminal) {
-					activeTerminal.show()
-					activeTerminal.sendText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`)
-				} else {
-					new Promise(function (resolve) {
-						t = vscode.window.createTerminal()
-						resolve(t)
-					}).then(function (t) {
-						t.show()
-						t.sendText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`)
-					})
-				}
+			let terminal = vscode.window.activeTerminal;
+			if (!terminal) {
+				terminal = await vscode.window.createTerminal();
+			}
 			})
 		}
 	});
