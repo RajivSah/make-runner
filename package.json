@@ -37,7 +37,16 @@
 				"key": "ctrl+shift+c",
 				"mac": "cmd+shift+c"
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"properties": {
+				"make-runner.env": {
+					"type": "object",
+					"default": {}
+				}
+			}
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
