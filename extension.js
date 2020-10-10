@@ -42,7 +42,8 @@ function activate(context) {
 			if (!terminal) {
 				terminal = await vscode.window.createTerminal();
 			}
-			})
+			terminal.show();
+			terminal.sendText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`)
 		}
 	});
 
