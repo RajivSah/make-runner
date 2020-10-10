@@ -15,7 +15,7 @@ function activate(context) {
 		let editor = vscode.window.activeTextEditor;
 		if (editor) {
 			const filename = editor.document.fileName.split('/').pop()
-			if (filename.toLocaleLowerCase() !== 'makefile'){
+			if (filename.toLocaleLowerCase() !== 'makefile') {
 				return
 			}
 			let config = ''
