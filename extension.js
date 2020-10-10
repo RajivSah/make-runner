@@ -72,12 +72,12 @@ function activate(context) {
 			}
 
 				const env = config[selection];
-				const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
-				const line = editor.selection.active.line;
-				const command = editor.document.lineAt(line).text.split(":")[0];
-				ncp.copy(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`, function () {
-					console.log('copy completed')
-				})
+			const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
+			const line = editor.selection.active.line;
+			const command = editor.document.lineAt(line).text.split(":")[0];
+			ncp.copy(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`, function () {
+				console.log('copy completed')
+			})
 			})
 		}
 	});
