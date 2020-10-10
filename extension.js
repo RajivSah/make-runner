@@ -27,6 +27,8 @@ function activate(context) {
 				if (!selection) {
 					return
 				}
+				env = config[selection];
+			}
 
 				const env = config[selection]
 				const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ')
