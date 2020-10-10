@@ -30,10 +30,14 @@ function activate(context) {
 				env = config[selection];
 			}
 
-				const env = config[selection]
-				const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ')
-				const line = editor.selection.active.line;
-				const command = editor.document.lineAt(line).text.split(":")[0];
+			if (typeof env !== 'object') {
+				vscode.window.showErrorMessage('Make Runner config set properly.');
+				return;
+			}
+
+			const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
+			const line = editor.selection.active.line;
+			const command = editor.document.lineAt(line).text.split(":")[0];
 				const activeTerminal = vscode.window.activeTerminal
 
 				if (activeTerminal) {
