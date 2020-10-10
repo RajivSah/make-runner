@@ -65,12 +65,11 @@ function activate(context) {
 				}
 				env = config[selection];
 			}
-			const envs = Object.keys(config)
-			vscode.window.showQuickPick(envs)
-				.then((selection) => {
-				if (!selection) {
-					return;
-				}
+
+			if (typeof env !== 'object') {
+				vscode.window.showErrorMessage('Make Runner config set properly.');
+				return;
+			}
 
 				const env = config[selection];
 				const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
