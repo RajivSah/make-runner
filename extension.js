@@ -18,15 +18,12 @@ function activate(context) {
 			if (filename.toLocaleLowerCase() !== 'makefile') {
 				return
 			}
-			let config = ''
-			try {
-				config = JSON.parse(fs.readFileSync(os.homedir() + "/.make-runner.json", 'utf-8'))
-			} catch (error) {
-				vscode.window.showWarningMessage('Config not found')
-			}
-			const envs = Object.keys(config)
-			vscode.window.showQuickPick(envs)
-				.then((selection) => {
+			const config = vscode.workspace.getConfiguration().get('make-runner').env;;
+			const envs = Object.keys(config);
+
+			let env = {};
+			if (envs.length !== 0) {
+				const selection = await vscode.window.showQuickPick(envs);
 				if (!selection) {
 					return
 				}
