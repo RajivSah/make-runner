@@ -1,6 +1,6 @@
 {
 	"name": "make-runner",
-	"displayName": "Make Runner",
+	"displayName": "Makefile Runner",
 	"description": "Run Makefile easily",
 	"publisher": "rajivshah01234",
 	"version": "1.0.0",
