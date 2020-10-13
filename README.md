@@ -20,6 +20,8 @@ Open `settings.json` and add configs
   "none": {}
 }
 ```
+### Installation
+Install the Makefile Runner extension by clicking the install link on this page, or install from the Extensions tab in Visual Studio Code.
 ### Usage
 Open any Makefile
 Put the cursor on any target
