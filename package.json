@@ -2,8 +2,8 @@
 	"name": "make-runner",
 	"displayName": "Make Runner",
 	"description": "Run Makefile easily",
-	"publisher": "rajiv-sah",
-	"version": "0.0.1",
+	"publisher": "rajivshah01234",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
