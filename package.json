@@ -1,7 +1,7 @@
 {
 	"name": "make-runner",
 	"displayName": "Make Runner",
-	"description": "Run Make file easily",
+	"description": "Run Makefile easily",
 	"publisher": "rajiv-sah",
 	"version": "0.0.1",
 	"engines": {
