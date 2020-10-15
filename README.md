@@ -20,6 +20,8 @@ Open `settings.json` and add configs
   "none": {}
 }
 ```
+<b>Note</b>: This is optional step to export environment variables while running targets.
+
 ### Usage
 Open any Makefile
 Put the cursor on any target
