@@ -23,6 +23,6 @@ Open `settings.json` and add configs
 ### Usage
 Open any Makefile
 Put the cursor on any target
-- Use key bindings `cmd+shift+enter` for Mac or `ctrl+shift+enter` for Windows to run the target
-- Use key bindings `cmd+shift+c` for Mac or `ctrl+shift+c` for Windows to copy the target command
+- Use key bindings `cmd+shift+enter` for Mac or `ctrl+shift+enter` for PC to run the target
+- Use key bindings `cmd+shift+c` for Mac or `ctrl+shift+c` for PC to copy the target command
 ![](sample.gif)
