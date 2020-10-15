@@ -9,11 +9,11 @@ Open `settings.json` and add configs
     "AWS_PROFILE": "development",
     "RAILS_ENV": "development",
     "ROLE": "admin",
-    "ENABLE_MFA": true
+    "ENABLE_MFA": false
   },
   "staging": {
-    "AWS_PROFILE": "development",
-    "RAILS_ENV": "development",
+    "AWS_PROFILE": "staging",
+    "RAILS_ENV": "staging",
     "ROLE": "user",
     "ENABLE_MFA": true
   },
