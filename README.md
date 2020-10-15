@@ -1,6 +1,6 @@
 ## Makefile Runner
 Allows us to run/copy make targets directly from vscode terminal.
-### Setup Options
+### Setup Options(Optional)
 To export environment variables while running targets.
 Open `settings.json` and add configs
 ``` json
