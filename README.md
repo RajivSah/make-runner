@@ -20,11 +20,13 @@ Open `settings.json` and add configs
   "none": {}
 }
 ```
-<b>Note</b>: This is optional step to export environment variables while running targets.
+<b>Note</b>: This is optional step to export environment variables while running the targets.
 
 ### Usage
 Open any Makefile
 Put the cursor on any target
-- Use key bindings `cmd+shift+enter` for Mac or `ctrl+shift+enter` for PC to run the target
-- Use key bindings `cmd+shift+c` for Mac or `ctrl+shift+c` for PC to copy the target command
+- Use key bindings `cmd+shift+enter` for Mac or `ctrl+shift+enter` for PC to run the target.
+
+<b>Note: This will execute the commands in the active terminal of vscode. If your current terminal is busy, create a new terminal before executing the target.</b>
+- Use key bindings `cmd+shift+c` for Mac or `ctrl+shift+c` for PC to copy the target command. <b>Now you can paste the command in the terminal of your choice.</b>
 ![](sample.gif)
