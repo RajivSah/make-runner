@@ -25,11 +25,11 @@ Open `settings.json` and add configs
 ### Usage
 - Open any Makefile
 - Put the cursor on any target
-#### Run the target in the vscode terminal
+#### 1. Run the target in the vscode terminal
 - Use key bindings `cmd+shift+enter` for Mac or `ctrl+shift+enter` for PC to run the target.
 
 <b>Note</b>: This will execute the commands in the active terminal of vscode. If your current terminal is busy, create a new terminal before executing the target.
 
-#### Copy the command
+#### 2. Copy the command
 - Use key bindings `cmd+shift+c` for Mac or `ctrl+shift+c` for PC to copy the target command. Now you can paste the command in the terminal of your choice.
 ![](sample.gif)
