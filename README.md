@@ -32,4 +32,5 @@ Open `settings.json` and add configs
 
 #### 2. Copy the command
 - Use key bindings `cmd+shift+c` for Mac or `ctrl+shift+c` for PC to copy the target command. Now you can paste the command in the terminal of your choice.
-![](sample.gif)
+
+<img src="sample.gif" height="500" width="600" align="center">
