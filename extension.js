@@ -2,7 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const path = require('path');
-var ncp = require("copy-paste");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -74,11 +73,10 @@ function activate(context) {
 			const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
 			const line = editor.selection.active.line;
 			const command = editor.document.lineAt(line).text.split(":")[0];
-			ncp.copy(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`, function () {
-				console.log('copy completed')
-			})
-		}
-	});
+                        await vscode.env.clipboard.writeText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`);
+                        console.log('copy completed');
+                }
+        });
 
 	context.subscriptions.push(copyIt, runIt);
 }
