@@ -10,27 +10,27 @@ const path = require('path');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-	let runIt = vscode.commands.registerCommand('make-runner.runIt', async function () {
-		let editor = vscode.window.activeTextEditor;
+	const runIt = vscode.commands.registerCommand('make-runner.runIt', async function () {
+		const editor = vscode.window.activeTextEditor;
 		if (editor) {
-			const filename = editor.document.fileName.split('/').pop()
-			if (filename.toLocaleLowerCase() !== 'makefile') {
-				return
+			const filename = editor.document.fileName.split('/').pop();
+			if (filename.toLowerCase() !== 'makefile') {
+				return;
 			}
-			const config = vscode.workspace.getConfiguration().get('make-runner').env;;
-			const envs = Object.keys(config);
+			const envConfig = vscode.workspace.getConfiguration('make-runner').get('env', {});
+			const envs = Object.keys(envConfig);
 
 			let env = {};
 			if (envs.length !== 0) {
 				const selection = await vscode.window.showQuickPick(envs);
 				if (!selection) {
-					return
+					return;
 				}
-				env = config[selection];
+				env = envConfig[selection];
 			}
 
 			if (typeof env !== 'object') {
-				vscode.window.showErrorMessage('Make Runner config set properly.');
+				vscode.window.showErrorMessage('Make Runner config not set properly.');
 				return;
 			}
 
@@ -42,41 +42,41 @@ function activate(context) {
 				terminal = await vscode.window.createTerminal();
 			}
 			terminal.show();
-			terminal.sendText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`)
+			terminal.sendText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`);
 		}
 	});
 
-	let copyIt = vscode.commands.registerCommand('make-runner.copyIt', async function () {
-		let editor = vscode.window.activeTextEditor;
+	const copyIt = vscode.commands.registerCommand('make-runner.copyIt', async function () {
+		const editor = vscode.window.activeTextEditor;
 		if (editor) {
-			const filename = editor.document.fileName.split('/').pop()
-			if (filename.toLocaleLowerCase() !== 'makefile') {
-				return
+			const filename = editor.document.fileName.split('/').pop();
+			if (filename.toLowerCase() !== 'makefile') {
+				return;
 			}
-			const config = vscode.workspace.getConfiguration().get('make-runner').env;
-			const envs = Object.keys(config);
+			const envConfig = vscode.workspace.getConfiguration('make-runner').get('env', {});
+			const envs = Object.keys(envConfig);
 
 			let env = {};
 			if (envs.length !== 0) {
 				const selection = await vscode.window.showQuickPick(envs);
 				if (!selection) {
-					return
+					return;
 				}
-				env = config[selection];
+				env = envConfig[selection];
 			}
 
 			if (typeof env !== 'object') {
-				vscode.window.showErrorMessage('Make Runner config set properly.');
+				vscode.window.showErrorMessage('Make Runner config not set properly.');
 				return;
 			}
 
 			const exp = Object.keys(env).map(key => `${key}=${env[key]}`).join(' ');
 			const line = editor.selection.active.line;
 			const command = editor.document.lineAt(line).text.split(":")[0];
-                        await vscode.env.clipboard.writeText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`);
-                        console.log('copy completed');
-                }
-        });
+			await vscode.env.clipboard.writeText(`${exp} make -C ${path.dirname(editor.document.fileName)} ${command}`);
+			console.log('copy completed');
+		}
+	});
 
 	context.subscriptions.push(copyIt, runIt);
 }
